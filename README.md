@@ -1,53 +1,73 @@
 # TestAPI - Node.js, Express, MongoDB, Docker
 
 ## Giới thiệu
-Đây là dự án API đơn giản sử dụng Node.js, Express, MongoDB và Docker.  
-API hỗ trợ quản lý người dùng, đăng ký, đăng nhập, phân quyền và soft delete.
+    Đây là dự án API đơn giản sử dụng Node.js, Express, MongoDB và Docker.  
+    API hỗ trợ quản lý người dùng:
+        đăng ký,
+        đăng nhập,
+        phân quyền
+        soft delete.
 
 ---
 ## công nghệ sử dụng 
-- Node.js: Backend API Server
-- Express.js: Web framework
-- MongoDB: Cơ sở dữ liệu NoSQL, được triển khai bằng Docker (sử dụng MongoDB Atlas)
-- Docker: Dùng để container hóa API và MongoDB
-- Postman: Công cụ test API
+    Node.js: Backend API Server
+
+    Express.js: Web framework
+
+    MongoDB: Cơ sở dữ liệu NoSQL (sử dụng MongoDB Atlas)
+
+    Docker: Dùng để container hóa API và MongoDB
+
+    Docker Compose: Quản lý đa container
+
+    Postman: Công cụ test API
+
+    GitHub: Quản lý source code
 ---
 
 ## Yêu cầu môi trường
-- Node.js >= 18 (nếu chạy local)
-- Docker và Docker Compose (nếu chạy container)
-- Git (để clone project)
 
+Công cụ	            Phiên bản yêu cầu
+Node.js	            >= 18
+Docker	            >= 24
+Docker Compose	    >= 2
+Git	                Mới nhất
+Postman	            Để test API
 ---
-## Cài đặt môi trường
+## Hướng dẫn cài đặt và chạy project
 
-### 👉 Cài bằng Docker Compose
-
-#### Bước 1: Clone dự án
+ Bước 1: Clone dự án
 ```bash
-git clone https://github.com/ten-tai-khoan/TestAPI.git
+git clone https://github.com/dobinh9999/TestAPI.git
 cd TestAPI
 
 Bước 2: Tạo file .env
-PORT=8000
-MONGO_URI=mongodb+srv://binhking69:binhking69@cluster0.a3fp6ws.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-JWT_SECRET=p@ssw0rdtokencuatao2025
-Bước 3: Build image : docker-compose build
-Bước 4: Chạy docker compose : docker-compose up
-Bước 5: Truy cập API :http://localhost:8000/
+
+    PORT=8000
+    MONGO_URI=mongodb+srv://binhking69:binhking69@cluster0.a3fp6ws.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+    JWT_SECRET=p@ssw0rdtokencuatao2025
+
+-------------Hướng dẫn chạy bằng Docker-----------------
+Bước 1: Build Docker Image
+    docker-compose build
+Bước 2: Chạy Docker
+    docker-compose up
+Bước 3: Truy cập API :
+    http://localhost:8000/
 
 
------------------------
--------------- Cài trực tiếp không dùng Docker (Chạy local) -----------------
+
+--------------Cài trực tiếp không dùng Docker (Chạy local)-----------------
 
 Bước 1: Cài thư viện:
         npm install,
         npm install jsonwebtoken bcryptjs,
         npm install express dotenv cors body-parser axios cheerio,
-Bước 2: Chạy server: npm start
+Bước 2: Chạy server:
+         npm start
 bước 3: Cài phần mềm Postman để test API local nhanh chóng
 ----------------------------------------------
-  API hỗ trợ:
+    Test API hỗ trợ:
 ---------------------------------------------
 |Method	   |Endpoint	            |Yêu cầu Token	            |Vai trò
 
@@ -61,10 +81,10 @@ GET	       /users/:id	            Có	                        User    (lấy th�
 PUT	       /users/:id	            Có	                        User    (tự chỉnh sửa thông tin của chính user, không có quyền sửa role)
 DELETE	   /users/:id	            Có	                        Admin   (xóa người dùng bằng Soft Delete)
 
---------------------------------------------------
 
+-------------------------------------------------
 Cấu trúc MongoDB
-
+-------------------------------------------------
 Hỗ trợ sử dụng MongoDB cục bộ (docker) hoặc MongoDB Atlas (cloud).
 
 Kết nối qua URI trong file .env.
@@ -76,7 +96,7 @@ JWT_SECRET=your_secret_key
 ---------------------------------------------------
 Hướng dẫn push project lên GitHub
 git init
-git remote add origin https://github.com/ten-tai-khoan/TestAPI.git
+git remote add origin https://github.com/dobinh9999/TestAPI.git
 git add .
 git commit -m "First commit"
 git branch -M main
