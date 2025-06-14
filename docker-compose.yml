@@ -1,0 +1,8 @@
+services:
+  api:
+    build: .
+    ports:
+      - '8000:8000'
+    environment:
+      - MONGO_URI=mongodb+srv://binhking69:binhking69@cluster0.a3fp6ws.mongodb.net/?retryWrites=true&w=majority
+    command: npm start
